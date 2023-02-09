@@ -1,7 +1,7 @@
 class Solution {
 public:
     long long distinctNames(vector<string>& ideas) {
-	map<char, set<string>>words;
+	unordered_map<char, unordered_set<string>>words;
 	for (string& s : ideas) {
 		words[s[0]].insert(s.substr(1, s.size()));
 	}
