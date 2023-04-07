@@ -1,12 +1,14 @@
 class Solution {
+int dp[46];
 public:
-	int climbStairs(int n) {
-		vector<int>dp(n + 1, -1);
-		return solve(n, dp);
-	}
-	int solve(int n, vector<int>& dp) {
-		if (n <= 1)return 1;
-		if (dp[n] != -1)return dp[n];
-		return dp[n] = solve(n - 1, dp) + solve(n - 2, dp);
-	}
+    int climbStairs(int n) {
+        memset(dp,-1,sizeof(dp));
+        return solve(0,n);
+    }
+    int solve(int i,int n){
+        if(i>n)return 0;
+        if(i==n)return 1;
+        if(dp[i]!=-1)return dp[i];
+        return dp[i]=solve(i+1,n)+solve(i+2,n);
+    }
 };
