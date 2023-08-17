@@ -12,8 +12,6 @@ public:
 			}
 		}
 		while (!q.empty()) {
-			int sz = q.size();
-			while (sz--) {
 				auto parent = q.front();
 				q.pop();
 				for (int k = 0; k < 4; k++) {
@@ -24,7 +22,6 @@ public:
 						mat[i][j] = mat[parent.first][parent.second] + 1;
 					}
 				}
-			}
 		}
 		return mat;
 	}
